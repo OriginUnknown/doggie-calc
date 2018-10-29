@@ -1,0 +1,22 @@
+{
+  "name": "tailster",
+  "description": "Tech test for tailster Doggie Calculator",
+  "main": "index.js",
+  "authors": [
+    "subabuko"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "tailster",
+    "doggie",
+    "calculator"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
