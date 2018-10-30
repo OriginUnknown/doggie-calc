@@ -6,7 +6,8 @@
     'ui.router',
     'app.home',
     'app.route-details',
-    'app.route-map'
+    'app.route-map',
+    'app.DogTreatsFactoryModule'
 
   ]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', config]);
 
@@ -17,7 +18,12 @@
         url: '/home',
         templateUrl: '../src/views/home/home.component.html',
         controller: 'HomeController',
-        controllerAs: 'homeCtrl'
+        controllerAs: 'homeCtrl',
+        resolve: {
+          routes: function(DogTreatsFactory){
+            return DogTreatsFactory.getAllRoutes();
+          }
+        }
       })
       .state('routeDetails', {
         url: "/walking-route/:id",

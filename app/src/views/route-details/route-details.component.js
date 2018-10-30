@@ -2,15 +2,34 @@
 
   'use strict';
 
-  angular.module('app.route-details', [])
-         .controller('RouteDetailsController', [ RouteDetailsControllerFn ]);
+  angular.module('app.route-details', ['app.DogTreatsFactoryModule'])
+         .controller('RouteDetailsController', [ 'DogTreatsFactory', '$stateParams', RouteDetailsControllerFn ]);
 
-  function RouteDetailsControllerFn() {
-    var self = this, _cart = {}, _totalPrice = 0;
+  function RouteDetailsControllerFn(DogTreatsFactory, $stateParams) {
+    var self = this;
+    self.getSelectedRoute = _getSelectedRoute;
     console.log('hello from Route Details controller');
 
-    function dummy(val){ }
+    _init();
 
+    function _init(){
+      self.getSelectedRoute($stateParams.id);
+    }
+
+    function _getSelectedRoute(id){
+      DogTreatsFactory.getSelectedRoute(id)
+      .then(_onSelectedRouteLoadedSuccess)
+      .catch(_onSelectedRouteFailedToLoad);
+    }
+
+    function _onSelectedRouteLoadedSuccess(response){
+      self.results = response;
+      console.log(self.results);
+    }
+
+    function _onSelectedRouteFailedToLoad(error){
+      console.log('Unable to load chosen walking route: '+ error);
+    }
 
   }
 })();
