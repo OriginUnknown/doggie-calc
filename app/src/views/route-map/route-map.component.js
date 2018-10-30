@@ -2,10 +2,10 @@
 
   'use strict';
 
-  angular.module('app.home', [])
-         .controller('HomeController', [HomeControllerFn]);
+  angular.module('app.route-map', [])
+         .controller('RouteMapController', [ RouteMapControllerFn ]);
 
-  function HomeControllerFn() {
+  function RouteMapControllerFn() {
     var self = this, _cart = {}, _totalPrice = 0;
     console.log('hello from Route Map controller');
 

@@ -5,6 +5,7 @@
 <!--[if gt IE 8]><!-->
 <html lang="en" ng-app="app" class="no-js">
 <!--<![endif]-->
+
 <head>
   <base href="/">
   <meta charset="utf-8">
@@ -18,26 +19,34 @@
   <link rel="stylesheet" href="style.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-3.6.0.min.js"></script>
 </head>
-  <body ng-cloak>
-    <div class="container">
-      <div class="navbar">
-        <div class="navbar-inner">
-          <ul class="nav">
-            <li><a href="#">One</a></li>
-            <li><a href="#">Two</a></li>
-            <li><a href="#">Three</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-     <ui-view></ui-view>
 
-  <!-- <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script> -->
+<body ng-cloak>
+  <div class="container-fluid">
+    <!-- navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand dog-header-icon company-title" href="#">
+        <img src="assets/cartoon-dog-with-bone_64x64.svg" width="64" height="64" class="d-inline-block align-top" alt="">
+        Doggie calculator
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+  </div>
+  <!-- Router -->
+  <ui-view></ui-view>
+
+
+  <script src="bower_components/jquery/dist/jquery.slim.js" charset="utf-8"></script>
+  <script src="bower_components/popper.js/dist/umd/popper.min.js" charset="utf-8"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
   <script src="bower_components/angular/angular.js" charset="utf-8"></script>
   <script src="bower_components/angular-resource/angular-resource.min.js" charset="utf-8"></script>
   <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js" charset="utf-8"></script>
   <script src="src/app.module.js"></script>
-  <script src="src/app.component.js"></script>
   <script src="src/views/home/home.component.js"></script>
+  <script src="src/views/route-details/route-details.component.js"></script>
+  <script src="src/views/route-map/route-map.component.js"></script>
 </body>
+
 </html>
