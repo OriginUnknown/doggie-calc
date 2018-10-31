@@ -17,6 +17,8 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="src/views/route-details/route-details.component.css">
+  <link rel="stylesheet" href="src/views/route-map/route-map.component.css">
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-3.6.0.min.js"></script>
 </head>
 
@@ -36,7 +38,7 @@
   <!-- Router -->
   <ui-view></ui-view>
 
-
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBp7-48qKl3mat1o4U5zDMP_oLwY2alq8M" async defer></script>
   <script src="bower_components/jquery/dist/jquery.slim.js" charset="utf-8"></script>
   <script src="bower_components/popper.js/dist/umd/popper.min.js" charset="utf-8"></script>
   <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" charset="utf-8"></script>
@@ -48,6 +50,7 @@
   <script src="src/views/route-details/route-details.component.js"></script>
   <script src="src/views/route-map/route-map.component.js"></script>
   <script src="src/services/DogTreatsServices.js"></script>
+  <script src="src/services/GoogleAPIService.js"></script>
 </body>
 
 </html>

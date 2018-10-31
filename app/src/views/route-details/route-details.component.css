@@ -1,0 +1,3 @@
+a.view-route-alink:not([href]):not([tabindex]) {
+  color: #FFF;
+}

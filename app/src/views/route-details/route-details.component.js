@@ -3,10 +3,11 @@
     'use strict';
 
     angular.module('app.route-details', ['app.DogTreatsFactoryModule'])
-      .controller('RouteDetailsController', ['DogTreatsFactory', '$stateParams', RouteDetailsControllerFn]);
+      .controller('RouteDetailsController', ['DogTreatsFactory', '$state', '$stateParams', RouteDetailsControllerFn]);
 
-    function RouteDetailsControllerFn(DogTreatsFactory, $stateParams) {
+    function RouteDetailsControllerFn(DogTreatsFactory, $state, $stateParams) {
       var self = this;
+      this.getSelectedRouteMap = getSelectedRouteMap;
 
       _init();
 
@@ -21,6 +22,10 @@
             console.log(self.treats);
           }
         );
+      }
+
+      function getSelectedRouteMap() {
+        $state.go('viewMap');
       }
   }
 })();

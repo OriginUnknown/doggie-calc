@@ -22,7 +22,10 @@
           <li class="list-group-item">Treats stored:<strong> 7</strong></li>
         </ul>
         <div class="card-body">
-          <a ui-sref="viewMap({mapId: 1})" class="btn btn-primary">View map of route</a>
+          <a class="btn btn-primary view-route-alink"
+            ng-click="routeDetailsCtrl.getSelectedRouteMap();">
+            View map of route
+          </a>
         </div>
       </div>
     </div>

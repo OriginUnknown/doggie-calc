@@ -5,13 +5,14 @@
          .factory('DogTreatsFactory', ['$resource', GetDogTreatsFactory]);
 
   function GetDogTreatsFactory($resource){
-    var factory = {},
+    var factory = {}, selectedRouteLocation,
         getAllRoutesResourceUrl = $resource('https://infinite-lake-80504.herokuapp.com/api/routes'),
         getSelectedRouteResourceUrl = $resource('https://infinite-lake-80504.herokuapp.com/api/routes/:route_id', {id: '@route_id'});
 
     // Exposed DogTreatsFactory API
     factory.getAllRoutes = getAllRoutes;
     factory.getSelectedRoute = getSelectedRoute;
+    factory.getSelectedRouteLocations = getSelectedRouteLocations;
     return factory;
 
     function getAllRoutes(){
@@ -35,7 +36,12 @@
     }
 
     function _onSelectedRouteLoadedSuccess(response) {
+      selectedRouteLocation = response.locations;
       return _calculateTreats(response);
+    }
+
+    function getSelectedRouteLocations(){
+      return (selectedRouteLocation === undefined) ? {} : selectedRouteLocation;
     }
 
     function _onSelectedRouteFailedToLoad(error) {
@@ -47,7 +53,8 @@
       var walkRouteData = {
         id: data.id,
         route: data.name,
-        treats: {}
+        treats: {},
+        locations: data.locations
       };
       walkRouteData.treats.deficit = 0;
       for (var i = 0; i < data.locations.length; i++) {

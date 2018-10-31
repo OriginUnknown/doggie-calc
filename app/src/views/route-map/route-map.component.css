@@ -1,0 +1,8 @@
+.row.map-row {
+  margin-left: 0;
+  margin-right: 0;
+}
+#map {
+  height: 600px;
+  width: 600px;
+}

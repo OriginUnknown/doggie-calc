@@ -7,7 +7,8 @@
     'app.home',
     'app.route-details',
     'app.route-map',
-    'app.DogTreatsFactoryModule'
+    'app.DogTreatsFactoryModule',
+    'app.GoogleMapsAPIModule'
 
   ]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', config]);
 
@@ -32,7 +33,7 @@
         controllerAs: 'routeDetailsCtrl'
       })
       .state('viewMap', {
-        url: "^/view-walking-route/:mapId",
+        url: "^/view-walking-route/",
         templateUrl: '../src/views/route-map/route-map.component.html',
         controller: 'RouteMapController',
         controllerAs: 'RouteMapCtrl'

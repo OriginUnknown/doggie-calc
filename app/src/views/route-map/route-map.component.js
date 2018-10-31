@@ -2,15 +2,16 @@
 
   'use strict';
 
-  angular.module('app.route-map', [])
-         .controller('RouteMapController', [ RouteMapControllerFn ]);
+  angular.module('app.route-map', ['app.GoogleMapsAPIModule'])
+         .controller('RouteMapController', [ 'GoogleMapsAPIModuleFactory', RouteMapControllerFn ]);
 
-  function RouteMapControllerFn() {
-    var self = this, _cart = {}, _totalPrice = 0;
-    console.log('hello from Route Map controller');
+  function RouteMapControllerFn(GoogleMapsAPIModuleFactory) {
+    var self = this;
 
-    function dummy(val){ }
+    _init();
 
-
+    function _init() {
+      GoogleMapsAPIModuleFactory.initMap();
+    }
   }
 })();
