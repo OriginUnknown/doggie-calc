@@ -2,9 +2,7 @@
   "name": "tailster",
   "version": "1.0.0",
   "description": "Tech test for tailster Doggie Calculator",
-  "scripts": {
-    "start": "npx live-server --port=6800 --browser='Google Chrome' --open='app/index.html'"
-  },
+  "scripts": {},
   "keywords": [
     "tailster",
     "doggie",
