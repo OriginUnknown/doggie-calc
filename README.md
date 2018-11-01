@@ -19,7 +19,8 @@ bower install
 
 ## The rules/logic:
 Below is dummy data representing the coordinates of a location (longitude, latitude and altitude respectively);
-```route = [
+```
+route = [
             [1, 1, 10],
             [4, 7, 0],
             [7, 18, 6],
