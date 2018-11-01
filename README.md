@@ -1,4 +1,4 @@
-#Dog snack calculator
+# Dog snack calculator
 
 A request for a small AngularJS web app.
 
