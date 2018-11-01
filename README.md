@@ -4,6 +4,7 @@ A request for a small AngularJS web app.
 
 ## The task
 To calculate the required number of snacks needed for dog walks based on altitude.
+*All console logs and comments can be viewed on the develop branch of this repo.
 
 ## App setup
 - Ensure that Node.js and NPM is installed respectively.

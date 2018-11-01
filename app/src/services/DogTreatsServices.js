@@ -49,7 +49,6 @@
     }
 
     function _calculateTreats(data) {
-      console.log(data);
       var walkRouteData = {
         id: data.id,
         route: data.name,
@@ -65,44 +64,31 @@
             nextAltitude = nextPosition.altitude;
           if (currentAltitude > nextAltitude) {
             // Downhill walkies;
-            // if first currentAltitude value is downhill, store the diff of
-            // snacks between first currentAltitude and the nextAltitude
             if(!walkRouteData.treats['stored']){
               walkRouteData.treats['stored'] = currentAltitude - nextAltitude;
             } else {
-              // if dowhill and we already have snacks, add the snack diff
-              // between currentAltitude and nextAltitude
+              // if dowhill and we already have snacks, add the snack diff between currentAltitude and nextAltitude
               diff = currentAltitude - nextAltitude;
               walkRouteData.treats['stored'] = walkRouteData.treats.stored + diff;
             }
-            console.log('Downhill: Store treats for later: ' + walkRouteData.treats.stored);
           } else if (nextAltitude > currentAltitude) {
-            // Uphill walkies -> if there are enough stored snacks to cover
-            // the difference between currentAltitude and the nextAltitude;
+            // Uphill walkies -> if there are enough stored snacks to cover the difference between currentAltitude and the nextAltitude;
             if (walkRouteData.treats.stored >= (nextAltitude - currentAltitude)) {
-              console.log('Uphill: Current treats: ' + walkRouteData.treats.stored + ' . Give out: ' + currentAltitude + ' treats. Treats remaining: ' + (walkRouteData.treats.stored - currentAltitude));
               diff = nextAltitude - currentAltitude;
               walkRouteData.treats.stored = walkRouteData.treats.stored - diff;
             } else {
-              // As this is the start and there are no snacks to begin trekking
-              // uphill calculate the deficit difference between first
-              // currentAltitude and the nextAltitude
+              // As this is the start and there are no snacks to begin trekking uphill calculate
+              // the deficit difference between first currentAltitude and the nextAltitude
               if(!walkRouteData.treats['stored']){
                 walkRouteData.treats['stored'] = 0;
               }
-              console.log('Treat deficit. Distance: ' + nextAltitude +'. Current treats: ' + walkRouteData.treats.stored + '. Treats needed: ' + ((nextAltitude - currentAltitude) - walkRouteData.treats.stored));
               diff = (nextAltitude - currentAltitude) - walkRouteData.treats.stored;
               walkRouteData.treats.deficit = walkRouteData.treats.deficit + diff;
               walkRouteData.treats.stored = 0;
             }
-          } else {
-            console.log('Walking on flat lands. no treats stored.');
           }
-        } else {
-          console.log('End of walkies');
         }
       }
-      console.log('This route requires ' + (walkRouteData.treats.deficit ? walkRouteData.treats.deficit : 0) +' treats with ' + walkRouteData.treats.stored +' treats stored.');
       return walkRouteData;
     }
 

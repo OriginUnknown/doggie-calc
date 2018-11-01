@@ -20,7 +20,6 @@
           function(data){
             data['description'] = 'Some more blurb about ' + data.route;
             self.treats = data;
-            console.log(self.treats);
             GoogleMapsAPIModuleFactory.initMap();
           }
         );
