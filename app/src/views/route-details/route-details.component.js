@@ -2,10 +2,10 @@
 
     'use strict';
 
-    angular.module('app.route-details', ['app.DogTreatsFactoryModule'])
-      .controller('RouteDetailsController', ['DogTreatsFactory', '$state', '$stateParams', RouteDetailsControllerFn]);
+    angular.module('app.route-details', ['app.DogTreatsFactoryModule', 'app.GoogleMapsAPIModule'])
+      .controller('RouteDetailsController', ['DogTreatsFactory', 'GoogleMapsAPIModuleFactory', '$state', '$stateParams', RouteDetailsControllerFn]);
 
-    function RouteDetailsControllerFn(DogTreatsFactory, $state, $stateParams) {
+    function RouteDetailsControllerFn(DogTreatsFactory, GoogleMapsAPIModuleFactory, $state, $stateParams) {
       var self = this;
       this.getSelectedRouteMap = getSelectedRouteMap;
 
@@ -21,6 +21,7 @@
             data['description'] = 'Some more blurb about ' + data.route;
             self.treats = data;
             console.log(self.treats);
+            GoogleMapsAPIModuleFactory.initMap();
           }
         );
       }

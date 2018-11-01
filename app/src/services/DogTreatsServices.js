@@ -15,23 +15,23 @@
     factory.getSelectedRouteLocations = getSelectedRouteLocations;
     return factory;
 
-    function getAllRoutes(){
+    function getAllRoutes() {
       return getAllRoutesResourceUrl.query().$promise
       .then(_onAllRoutesLoadedSuccess)
       .catch(_onAllRoutesFailedToLoad);
     }
 
-    function getSelectedRoute(route_id){
+    function getSelectedRoute(route_id) {
       return getSelectedRouteResourceUrl.get({ route_id }).$promise
       .then(_onSelectedRouteLoadedSuccess)
       .catch(_onSelectedRouteFailedToLoad);
     }
 
-    function _onAllRoutesLoadedSuccess(response){
+    function _onAllRoutesLoadedSuccess(response) {
       return response;
     }
 
-    function _onAllRoutesFailedToLoad(error){
+    function _onAllRoutesFailedToLoad(error) {
       console.log('Unable to load routes: '+ error);
     }
 
@@ -40,7 +40,7 @@
       return _calculateTreats(response);
     }
 
-    function getSelectedRouteLocations(){
+    function getSelectedRouteLocations() {
       return (selectedRouteLocation === undefined) ? {} : selectedRouteLocation;
     }
 

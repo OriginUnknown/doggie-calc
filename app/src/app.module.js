@@ -10,7 +10,7 @@
     'app.walkingRoutesModule',
     'app.routeDetailsCardModule',
     'app.DogTreatsFactoryModule',
-    'app.walkingRouteMapImageModule',
+    'app.googleMapImageModule',
     'app.GoogleMapsAPIModule'
 
   ]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', config]);

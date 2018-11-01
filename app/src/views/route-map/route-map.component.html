@@ -3,11 +3,16 @@
     <div class="col-12">
       <h1>URL to map of route</h1>
       <p>
-        <a ui-sref="routeDetails({id: 1})">...Back to routes details</a>
+        <a class="back-to-route-details-link"
+          ng-click="routeMapCtrl.backToRouteDetails();">
+          ...Back to routes details
+        </a>
       </p>
     </div>
   </div>
-  <div class="row map-row">
-    <div class="col-12" id="map"></div>
+  <div class="row">
+    <div class="col-12">
+      <google-map-image></google-map-image>
+    </div>
   </div>
 </div>

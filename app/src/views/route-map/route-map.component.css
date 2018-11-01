@@ -1,8 +1,17 @@
-.row.map-row {
+.row {
   margin-left: 0;
   margin-right: 0;
 }
+
 #map {
   height: 600px;
-  width: 600px;
+}
+
+a.back-to-route-details-link:not([href]):not([tabindex]):hover {
+  color: #0056b3;
+  cursor: pointer;
+}
+
+a.back-to-route-details-link:not([href]):not([tabindex]) {
+    color: #007bff;
 }
