@@ -5,22 +5,20 @@
          .factory('GoogleMapsAPIModuleFactory', ['$resource', 'DogTreatsFactory', GetGoogleMapsAPIModuleFactory]);
 
   function GetGoogleMapsAPIModuleFactory($resource, DogTreatsFactory){
-    var factory = {}, map, options = {};
+    var factory = {}, map, mapOverview, options = {};
 
     factory.initMap = initMap;
     return factory;
 
     function initMap(){
       console.log('load map');
-      var markerArray = [];
-      // Instantiate a directions service.
-      var directionsService = new google.maps.DirectionsService;
-      // Instantiate an info window to hold step text.
+      var markerArray = [], directionsService = new google.maps.DirectionsService;
       var stepDisplay = new google.maps.InfoWindow;
-      options['coords'] = DogTreatsFactory.getSelectedRouteLocations(); //[{},{lat:0, long:0}]
+      options['coords'] = DogTreatsFactory.getSelectedRouteLocations();
       console.log(options.coords);
+      var mapLat = options.coords[0].latitude, mapLong = options.coords[0].longitude;
       map = new google.maps.Map(document.getElementById('map'), {
-        center: {lat: 51.51973438454002, lng: -0.1222349703313059},
+        center: { lat: mapLat, lng: mapLong },
         zoom: 13
       });
 
@@ -32,13 +30,16 @@
     }
 
     function calculateAndDisplayRoute(directionsDisplay, directionsService, markerArray, stepDisplay, map) {
-      // First, remove any existing markers from the map.
         for (var i = 0; i < markerArray.length; i++) {
           markerArray[i].setMap(null);
         }
+        var startingMapLat = options.coords[0].latitude,
+        startingMapLong = options.coords[0].longitude,
+        finishMapLat = options.coords[options.coords.length - 1].latitude,
+        finishMapLong = options.coords[options.coords.length - 1].longitude;
         directionsService.route({
-          origin: new google.maps.LatLng(51.51973438454002, -0.1222349703313059),
-          destination: new google.maps.LatLng(51.51940237735539, -0.1229298301042271),
+          origin: new google.maps.LatLng(startingMapLat, startingMapLong),
+          destination: new google.maps.LatLng(finishMapLat, finishMapLong),
           travelMode: 'WALKING'
         }, function(response, status) {
           if (status === 'OK') {

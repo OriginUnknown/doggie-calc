@@ -1,0 +1,10 @@
+<div class="card">
+  <div class="card-header">
+    #{{ $walkRouteCtrl.route.id }}: {{ $walkRouteCtrl.route.name }}
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{ $walkRouteCtrl.route.title }}</h5>
+    <p class="card-text">{{ $walkRouteCtrl.route.description }}</p>
+    <a ui-sref="routeDetails({ id: $walkRouteCtrl.route.id })" class="btn btn-primary">Select this route</a>
+  </div>
+</div>

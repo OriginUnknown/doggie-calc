@@ -1,0 +1,19 @@
+<div class="card">
+  <walking-route-map-image on-render="$routeDetailsCtrl.showGoogleMap();"></walking-route-map-image>
+  <div class="card-body">
+    <h5 class="card-title">{{ $routeDetailsCtrl.details.route }}</h5>
+    <p class="card-text">
+      {{ $routeDetailsCtrl.details.description }}
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Treats needed:<strong> {{ $routeDetailsCtrl.details.treats.deficit }}</strong></li>
+    <li class="list-group-item">Treats stored:<strong> {{ $routeDetailsCtrl.details.treats.stored }}</strong></li>
+  </ul>
+  <div class="card-body">
+    <a class="btn btn-primary view-route-alink"
+      ng-click="$routeDetailsCtrl.onViewRouteImage();">
+      View map of route
+    </a>
+  </div>
+</div>

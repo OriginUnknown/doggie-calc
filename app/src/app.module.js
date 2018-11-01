@@ -7,7 +7,10 @@
     'app.home',
     'app.route-details',
     'app.route-map',
+    'app.walkingRoutesModule',
+    'app.routeDetailsCardModule',
     'app.DogTreatsFactoryModule',
+    'app.walkingRouteMapImageModule',
     'app.GoogleMapsAPIModule'
 
   ]).config(['$stateProvider', '$urlRouterProvider', '$locationProvider', config]);
@@ -33,10 +36,10 @@
         controllerAs: 'routeDetailsCtrl'
       })
       .state('viewMap', {
-        url: "^/view-walking-route/",
+        url: "^/view-walking-route/:id/:name",
         templateUrl: '../src/views/route-map/route-map.component.html',
         controller: 'RouteMapController',
-        controllerAs: 'RouteMapCtrl'
+        controllerAs: 'routeMapCtrl'
       });
 
       $urlRouterProvider.otherwise('/home');

@@ -7,9 +7,16 @@
 
   function HomeControllerFn(routes) {
     var self = this;
-    self.walkingRoutes = routes;
-    console.log('hello from Route Map controller');
-    console.log(self.walkingRoutes);
 
+    _init();
+
+    function _init(){
+      for(var i = 0; i < routes.length; i++){
+        routes[i]['title'] = 'Some blurb about ' + routes[i].name;
+        routes[i]['description'] = 'Some wonderful blurb about ' + routes[i].name +'.';
+      }
+      self.walkingRoutes = routes;
+      console.log(self);
+    }
   }
 })();

@@ -18,6 +18,7 @@
       function _getSelectedRoute(id) {
         DogTreatsFactory.getSelectedRoute(id).then(
           function(data){
+            data['description'] = 'Some more blurb about ' + data.route;
             self.treats = data;
             console.log(self.treats);
           }
@@ -25,7 +26,8 @@
       }
 
       function getSelectedRouteMap() {
-        $state.go('viewMap');
+        self.treats.route = self.treats.route.toLowerCase().replace(/\s+/g,"-");;
+        $state.go('viewMap', { id: self.treats.id, name: self.treats.route });
       }
   }
 })();
