@@ -14,12 +14,6 @@
 
     function WalkingRouteController() {
         var self = this;
-        // self.activities = [];
-        // self.doFunnyStuff = doFunnyStuff;
-        //
-        // function doFunnyStuff() {
-        //     vm.activities.push('yolo');
-        // }
     }
 
 }());
